@@ -21,7 +21,17 @@ namespace EdwinSaaEvaluacionP3.Services
 
         public Task<List<Recipe>> GetRecipesAsync() => _database.Table<Recipe>().ToListAsync();
 
+        public Task<Recipe> GetRecipeByIdAsync(int id)
+        {
+            return _database.Table<Recipe>().FirstOrDefaultAsync(r => r.Id == id);
+        }
+
         public Task<int> SaveRecipeAsync(Recipe recipe) => _database.InsertAsync(recipe);
+        public Task<int> UpdateRecipeAsync(Recipe recipe) => _database.UpdateAsync(recipe);
+
+        public Task<int> DeleteRecipeAsync(Recipe recipe) => _database.DeleteAsync(recipe);
+
+
 
 
     }
