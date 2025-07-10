@@ -1,0 +1,22 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:EdwinSaaEvaluacionP3.ViewModels"
+             x:Class="EdwinSaaEvaluacionP3.Views.NewRecipePage"
+             Title="Edwin Saa - 10/07/1995">
+
+    <ContentPage.BindingContext>
+        <viewmodels:NewRecipeViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Entry Placeholder="Nombre de la receta" Text="{Binding Name}" />
+            <Editor Placeholder="Ingredientes" AutoSize="TextChanges" Text="{Binding Ingredients}" />
+            <Entry Placeholder="Tiempo de preparación (min)" Keyboard="Numeric" Text="{Binding PreparationTime}" />
+            <CheckBox IsChecked="{Binding IsVegetarian}" />
+            <Label Text="¿Es vegetariana?" />
+
+            <Button Text="Guardar Receta" Command="{Binding SaveCommand}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
